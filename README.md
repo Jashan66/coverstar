@@ -1,1 +1,1 @@
-A web app where users can turn there instagram photos into a magazine cover.
+# A web app where users can turn their instagram photos into a magazine cover.
