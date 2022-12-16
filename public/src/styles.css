@@ -1,0 +1,85 @@
+.document{
+    background-color: black;
+}
+.titles{
+    text-align: center;
+    color: #379237;
+    font-family: 'GFS Didot', serif;
+}
+
+
+
+.main-content{
+
+    text-align: center;
+    font-family: 'GFS Didot', serif;
+    
+
+}
+
+.main-img{
+    display: inline-block;
+    
+}
+
+.line{
+    color: red;
+    line-height: 5px;
+}
+
+
+.sign-in{
+
+    display: inline-block;
+    margin-left: 13%;
+    color: white;
+  
+
+   
+}
+
+.inside-text{
+    text-align: center;
+}
+
+
+
+/* CHECK BOX */
+
+.switch { 
+    position : relative ;
+    display : inline-block;
+    width : 40px;
+    height : 20px;
+    background-color: #eee;
+    border-radius: 20px;
+    transition: all 0.3s;
+  }
+
+  .switch::after {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: white;
+    top: 1px; 
+    left: 1px;
+    transition: all 0.3s;
+  }
+
+  .checkbox:checked + .switch::after {
+    left : 20px; 
+  }
+  .checkbox:checked + .switch {
+    background-color: red;
+  }
+
+  /* .checkbox{
+ 
+    visibility: hidden;
+
+  } */
+
+
+/* CHECK BOX */

@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/Jashan66/mag-fame/issues"
   },
-  "homepage": "https://github.com/Jashan66/mag-fame#readme"
+  "homepage": "https://github.com/Jashan66/mag-fame#readme",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "bootstrap": "^5.2.3",
+    "express": "^4.18.2",
+    "node": "^19.2.0"
+  }
 }
