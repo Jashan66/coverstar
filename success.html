@@ -13,7 +13,28 @@
         <link rel="stylesheet" href="">
     </head>
     <body>
+
+         <!-- FACEBOOK SDK SETUP -->
+         <script>
+            window.fbAsyncInit = function() {
+              FB.init({
+                appId            : '1106629183360073',
+                autoLogAppEvents : true,
+                xfbml            : true,
+                version          : 'v15.0'
+              });
+              FB.AppEvents.logPageView();   
+            };
+          </script>
+          <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+          <!-- FACEBOOK SDK SETUP -->
+
         <h1>Successfully authenticated</h1>
+        <p>Get user data and user_id on backend</p>
+        <p>Dislay user inofrmation here for them so they can choose the image they want/ along with other information</p>
+        <p>Username, caption, etc.</p>  
+
+        <p>Once they configure there image have a save button that will save image</p>
         
         <script src="" async defer></script>
     </body>

@@ -7,6 +7,7 @@
     font-family: 'GFS Didot', serif;
 }
 
+/* HOME PAGE */
 
 
 .main-content{
@@ -17,7 +18,7 @@
 
 }
 
-.main-img{
+.home-img{
     display: inline-block;
     
 }
@@ -38,9 +39,11 @@
    
 }
 
-.inside-text{
+.sign-in-content{
     text-align: center;
 }
+
+/* HOME PAGE /*
 
 
 

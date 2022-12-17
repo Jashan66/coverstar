@@ -14,9 +14,35 @@
         <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=GFS+Didot&display=swap" rel="stylesheet">
     </head>
     <body class="document">
+       
+        <!-- FACEBOOK SDK SETUP -->
+        <script>
+            window.fbAsyncInit = function() {
+              FB.init({
+                appId            : '1106629183360073',
+                autoLogAppEvents : true,
+                xfbml            : true,
+                version          : 'v15.0'
+              });
+              FB.AppEvents.logPageView();   
+            };
+            (function(d, s, id){
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {return;}
+                js = d.createElement(s); js.id = id;
+                js.src = "https://connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+
+          </script>
+
+    
+          <!-- <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script> -->
+          <!-- FACEBOOK SDK SETUP -->
+    
+
         <div>
 
-        
             <div class="titles">
                 <h1>Mag-Fame</h1>
                 <p>Become a star</p>
@@ -24,7 +50,7 @@
             </div>
 
             <div class="main-content">
-                <div class="main-img">
+                <div class="home-img">
                     <img id="img" width="400" height="500" src="/vogue.webp" alt="Magazine Cover">
                     <p style="color: white;">Black and White</p>
                     <input id="check" class="checkbox" type="checkbox" onclick="toggleGrayscale()">
@@ -34,7 +60,7 @@
 
                 <div class="sign-in">
                     <h3>Put your instagram photos on the front cover.</h3>
-                    <div class="inside-text">
+                    <div class="sign-in-content">
                         <p>To get started sign in with Instagram below</p>
                         <form action="/" method="post">
                             <button type="submit" class="btn btn-outline-danger">Personal Account</button>
