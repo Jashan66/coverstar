@@ -1,0 +1,35 @@
+.pp-title{
+    text-align: center;
+    margin-top: 2%;
+
+    color: white;
+}
+
+.pp-content{
+    margin-top: 2%;
+    color: white;
+    text-align: center;
+
+}
+
+.pp-document{
+    background-color: black;
+    font-family: 'Kanit', sans-serif;
+}
+
+/* INFO POPUP */
+
+.info-body{
+
+    background-color: black;
+    font-family: 'Kanit', sans-serif;
+    text-align: center;
+}
+
+.info-content{
+
+    color: white;
+}
+
+
+/* INFO POPUP */

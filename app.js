@@ -1,57 +1,58 @@
+require("dotenv").config();
 const express = require("express")
+const fs = require("fs");
+const https = require("https");
 const bodyParser = require("body-parser");
+const session = require("express-session");
+const passport = require("passport");
+require('https').globalAgent.options.rejectUnauthorized = false;
 const app = express();
 
+
+var routing = require("./routes");
+var {auth} = require("./auth");
+var createImage = require("./createImage");
+var db = require("./db");
+
+
+// SSL SERVER CERTIFICATE
+const key = fs.readFileSync("./CA/localhost/localhost.decrypted.key");
+const cert = fs.readFileSync('./CA/localhost/localhost.crt');
+const server = https.createServer({key,cert},app);
+// SSL SERVER CERTIFICATE
+
+
 app.use(express.static("public"))
+
 app.use(bodyParser.urlencoded({extended:true}));
+app.set("view engine", "ejs");
+
+
+app.use(session({
+
+    secret: process.env.SESSION_SECRET,
+    resave: true,
+    saveUninitialized: true
+    }));
+
+
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+app.use("/", routing);
+app.use("/", auth);
+app.use("/success", routing);
 
 
 
 
-app.get("/",(req,res)=>{
 
+server.listen(3000,()=>{
     
-   
-   
-    res.sendFile(__dirname + "/index.html"); 
-});
-
-
-app.post("/", (req,res)=>{
-
-    
-    console.log("clicked");
-    res.redirect("https://api.instagram.com/oauth/authorize?client_id=1106629183360073&redirect_uri=https://localhost:3000/auth&scope=user_profile,user_media&response_type=code")
-
-    // user_id -- unique id to indentify instagram user = 17841404506540519
-    //Instagram APP id = 1106629183360073
-    //LONG LIVE ACCESS TOKEN = "IGQVJYTGJCWjBwYy1VNlltcDdNcHREQ1ZA1ME9kcVJUWURXeHpwSXpfQzRycWRTMUV4a0l5QWF2UzJZANEdGc0NTY2t4QVJWQmhHTk1qYkM3QjIxdmtJQVBtTUxKeFQyMlR5Y0RHdWln"
-   
-    //secret = bab386fe83f9a49f3888d090bc48948f
-    // code --- this expires every hour so might need to get a new one= AQCoCXIHMUL9pSMCSHhkUngp_aNxIBN5XsgPRUEJmn3K9ayJy11VBYI6w2H59xSb8XJmljtSiyQLfi78FU9ybvQvVaYbdXypuxpiyvnGw3wLMZODzCu7RpCTUo7RDaOxOh2h-X-A8jtRckCBgimMKfa-97Yi5m8aHrZIm0XrmCgK8B9-Au9Q4d-OvsbJZEGZW83lHCdJDKMLMkMGyh7DOXVNGTWPUjREf-1l26x-KCItdw-u6BH-omche0_C8Y8vrHBDEUnZFaAC2wuWubYxvSQIKJoVhLHO2C0umj8DO797mrPlp5JZsV1G8TwfxM69ejTXQN9PWsakV8yQNTymWE0rHyxbC2BSL3hhivkcgkZ7XHneAAihtrw7FjPQ
-    // TO GET NEW CODE CLICK BUTTON ON HOME PAGE AND COPY CODE IN URL
-
-    // ?client_id={app-id}
-    // &redirect_uri={redirect-uri}
-    // &scope=user_profile,user_media
-    // &response_type=code
-
-});
-
-app.get("/auth", (req,res)=>{
-
-
-    res.sendFile(__dirname + "/success.html");
-});
-
-
-
-
-
-
-
-
-app.listen(3000, (req,res)=>{
-
-    console.log("Server Running!");
+    console.log("Server running on port!");
 })
+
+
+module.exports = app;

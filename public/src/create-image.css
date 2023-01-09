@@ -1,0 +1,66 @@
+.success{
+    background-color: black;
+    font-family: 'Kanit', sans-serif;
+}
+
+.user-img{
+    text-align: center;
+}
+
+#image{
+    width: 500px;
+    height: 600px;
+   
+}
+
+.image-config{
+    text-align: center;
+    color: white;
+    margin-top: 2%;
+}
+
+.img-selectors{
+    color: white;
+    
+    margin-top: 2%;
+}
+
+.prev{
+    
+    float:left;
+    margin-left: 40%;
+}
+
+.selector{
+    margin-left: 5%;
+    float: left;
+}
+
+.next{
+    margin-left: 5%;
+    float: left;
+}
+
+#carousel_selector{
+    display: visible;
+}
+
+
+.a-tags{
+    color:white;
+}
+
+.a-tags:hover{
+    color: red;
+}
+
+
+.username{
+    color: red;
+}
+
+
+
+.logout{
+    float: right;
+}

@@ -1,0 +1,95 @@
+<%- include("partials/header") %>
+
+    <body class="success">
+        <div class="titles">
+            <h1>Mag-Fame</h1>
+            
+        </div>
+
+        <div class="home-info">
+            <a href="" class="link"> <i class="fa-solid fa-circle-info"></i> </a>
+        </div>
+
+        <form class="logout" action="/logout" method="POST">
+            <button type="submit">Logout</button>
+        </form>
+
+        <hr class="line">
+
+
+    
+       
+        <div class="user-img">
+            <img id="image" src="<%=photo%>" alt="">
+        </div>
+        
+       
+        <div class="image-config">
+          <h2 class="username" ><%= username %> </h2>
+          <h2>choose which instagram post you want to add</h2>
+        </div>
+
+        <div class="img-selectors">
+            <div class="prev">
+                <p>previous</p>
+            </div>
+            
+            <div class="selector">
+                    <a class="a-tags" href="/decreaseCount" onclick="decreaseMainPhotoCount()"> <i class="fa-sharp fa-solid fa-arrow-left"></i> </a>
+                
+
+                    <label id="photoSelect">0</label>
+
+                    <a class="a-tags" href="/increaseCount" onclick="changeMainPhoto()"> <i class="fa-sharp fa-solid fa-arrow-right"></i> </a>   
+            </div>
+
+            <div class="selector">
+                <a class="a-tags" href="/decreaseChildCount" onclick="decreaseChildCount()"> <i class="fa-sharp fa-solid fa-arrow-left"></i> </a>
+                <label id="carousel_selector"> 0</label>
+                <a class="a-tags" href="/increaseChildCount" onclick="increaseChildCount()"> <i class="fa-sharp fa-solid fa-arrow-right"></i> </a>
+            </div>
+
+            <div class="next">
+                <p>next</p>
+            </div>
+        </div>
+
+
+
+        <script>
+            // ADJUST MAIN PHOTO COUNT
+            var count = "<%= mpc%>";
+            function changeMainPhoto(){
+                count++;
+                document.getElementById("photoSelect").innerHTML = count;
+            }
+
+            function decreaseMainPhotoCount(){
+                if (count > 0 ){
+                    count--;
+                }
+                
+                document.getElementById("photoSelect").innerHTML = count;
+            }
+            // ADJUST MAIN PHOTO COUNT
+            //ADJUST CHILD PHOTO COUNT
+            var child_count = "<%= cpc %>";
+
+            function increaseChildCount(){
+                child_count++;
+                document.getElementById("carousel_selector").innerHTML = child_count;
+            }
+            
+            function decreaseChildCount(){
+                if (child_count > 0){
+                    child_count--;
+                }
+                document.getElementById("carousel_selector").innerHTML = child_count;
+            }
+            //ADJUST CHILD PHOTO COUNT
+
+        </script>
+        
+    </body>
+
+        <%- include("partials/footer") %>
