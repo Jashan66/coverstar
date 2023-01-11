@@ -7,7 +7,7 @@
         </div>
 
         <div class="home-info">
-            <a href="" class="link"> <i class="fa-solid fa-circle-info"></i> </a>
+            <a href="/info-popup" class="link"> <i class="fa-solid fa-circle-info"></i> </a>
         </div>
 
         <form class="logout" action="/logout" method="POST">
@@ -19,39 +19,46 @@
 
     
        
-        <div class="user-img">
+        <div class="user-img ">
             <img id="image" src="<%=photo%>" alt="">
+            <h2 id="img-text">Words</h2>
         </div>
         
        
-        <div class="image-config">
+        <!-- <div class="image-config">
           <h2 class="username" ><%= username %> </h2>
-          <h2>choose which instagram post you want to add</h2>
-        </div>
+        </div> -->
+
 
         <div class="img-selectors">
-            <div class="prev">
-                <p>previous</p>
-            </div>
+      
+            <div class="all-selectors">
+                <h3>Choose your photo</h3>
             
-            <div class="selector">
-                    <a class="a-tags" href="/decreaseCount" onclick="decreaseMainPhotoCount()"> <i class="fa-sharp fa-solid fa-arrow-left"></i> </a>
-                
+                <div class="selector">
+                    <label for="">Main Photo</label>
+                        <a class="a-tags" href="/decreaseCount" onclick="decreaseMainPhotoCount()"> <i class="fa-sharp fa-solid fa-arrow-left"></i> </a>
+                        <label id="photoSelect">0</label>
+                        <a class="a-tags" href="/increaseCount" onclick="changeMainPhoto()"> <i class="fa-sharp fa-solid fa-arrow-right"></i> </a>   
+                </div>
 
-                    <label id="photoSelect">0</label>
+                <div class="selector">
+                    <label for="">Album Photos</label>
+                    <a class="a-tags" href="/decreaseChildCount" onclick="decreaseChildCount()"> <i class="fa-sharp fa-solid fa-arrow-left"></i> </a>
+                    <label id="carousel_selector"> 0</label>
+                    <a class="a-tags" href="/increaseChildCount" onclick="increaseChildCount()"> <i class="fa-sharp fa-solid fa-arrow-right"></i> </a>
+                </div>
+            </div>
+            <br>
 
-                    <a class="a-tags" href="/increaseCount" onclick="changeMainPhoto()"> <i class="fa-sharp fa-solid fa-arrow-right"></i> </a>   
+            <div class="img-title">
+                <h3>Add a title</h3>
+
+                <input maxlength="10" placeholder="Click Enter to Save" onchange="changeTitle()" id="change_img_title" type="text">
             </div>
 
-            <div class="selector">
-                <a class="a-tags" href="/decreaseChildCount" onclick="decreaseChildCount()"> <i class="fa-sharp fa-solid fa-arrow-left"></i> </a>
-                <label id="carousel_selector"> 0</label>
-                <a class="a-tags" href="/increaseChildCount" onclick="increaseChildCount()"> <i class="fa-sharp fa-solid fa-arrow-right"></i> </a>
-            </div>
 
-            <div class="next">
-                <p>next</p>
-            </div>
+           
         </div>
 
 
@@ -88,6 +95,19 @@
             }
             //ADJUST CHILD PHOTO COUNT
 
+        </script>
+
+        <script>
+            //CHANGE IMAGE TITLE
+            function changeTitle(){
+
+                var changeText = document.getElementById("change_img_title")
+                var title = document.getElementById("img-text")
+            
+                title.innerHTML = changeText.value;
+                
+            }
+            //CHANGE IMAGE TITLE
         </script>
         
     </body>
