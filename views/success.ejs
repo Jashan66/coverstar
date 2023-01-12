@@ -11,7 +11,7 @@
         </div>
 
         <form class="logout" action="/logout" method="POST">
-            <button type="submit">Logout</button>
+            <button type="submit" class="btn btn-outline-warning" >Logout</button>
         </form>
 
         <hr class="line">
@@ -21,45 +21,71 @@
        
         <div class="user-img ">
             <img id="image" src="<%=photo%>" alt="">
-            <h2 id="img-text">Words</h2>
+            <h2 id="img-text">TITLE</h2>
+            <h2 id="username" ><%= username %> </h2>
         </div>
         
        
-        <!-- <div class="image-config">
-          <h2 class="username" ><%= username %> </h2>
-        </div> -->
+          
+    
 
 
         <div class="img-selectors">
       
-            <div class="all-selectors">
-                <h3>Choose your photo</h3>
-            
-                <div class="selector">
-                    <label for="">Main Photo</label>
-                        <a class="a-tags" href="/decreaseCount" onclick="decreaseMainPhotoCount()"> <i class="fa-sharp fa-solid fa-arrow-left"></i> </a>
-                        <label id="photoSelect">0</label>
-                        <a class="a-tags" href="/increaseCount" onclick="changeMainPhoto()"> <i class="fa-sharp fa-solid fa-arrow-right"></i> </a>   
-                </div>
+            <div class="center">
+                <h3>Choose Your Photo</h3>
+                <div class="center">
+                    <div class="selector">
+                        <label for="">Main Photo</label>
+                            <a class="a-tags" href="/decreaseCount" onclick="decreaseMainPhotoCount()"> <i class="fa-sharp fa-solid fa-arrow-left"></i> </a>
+                            <label id="photoSelect">0</label>
+                            <a class="a-tags" href="/increaseCount" onclick="changeMainPhoto()"> <i class="fa-sharp fa-solid fa-arrow-right"></i> </a>   
+                    </div>
 
-                <div class="selector">
-                    <label for="">Album Photos</label>
-                    <a class="a-tags" href="/decreaseChildCount" onclick="decreaseChildCount()"> <i class="fa-sharp fa-solid fa-arrow-left"></i> </a>
-                    <label id="carousel_selector"> 0</label>
-                    <a class="a-tags" href="/increaseChildCount" onclick="increaseChildCount()"> <i class="fa-sharp fa-solid fa-arrow-right"></i> </a>
+                    <div class="selector">
+                        <label for="">Album Photos</label>
+                        <a class="a-tags" href="/decreaseChildCount" onclick="decreaseChildCount()"> <i class="fa-sharp fa-solid fa-arrow-left"></i> </a>
+                        <label id="carousel_selector"> 0</label>
+                        <a class="a-tags" href="/increaseChildCount" onclick="increaseChildCount()"> <i class="fa-sharp fa-solid fa-arrow-right"></i> </a>
+                    </div>
                 </div>
             </div>
             <br>
 
-            <div class="img-title">
-                <h3>Add a title</h3>
-
-                <input maxlength="10" placeholder="Click Enter to Save" onchange="changeTitle()" id="change_img_title" type="text">
+            <div class="config-title">
+                <div class="center">
+                    <h3>Add a Title</h3>
+                    <div class="center">
+                        <input maxlength="10" placeholder="Click Enter to Save" onchange="changeTitle()" id="change_img_title" type="text">
+                    </div>
+                </div>
             </div>
 
 
-           
+            <div class="config-title">
+                <div class="center">
+                    <h3>Black/White or Color</h3>
+                    <div class="center">
+                        <button id="btn-bw" class="btn btn-dark" onclick="grayscale()">Black/White</button>
+                        <button id="btn-color" class="btn btn-danger" onclick="grayscale0()">Color</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="config-title">
+                <div class="center">
+                    <h3>Add Your Username</h3>
+                    <div class="center">
+                        <button onclick="username()" class="btn btn-danger">YES</button>
+                        <button onclick="noUsername()" class="btn btn-danger">NO</button>
+                    </div>
+                </div>
+            </div>
         </div>
+
+     
+        <button class="btn btn-outline-warning">Submit</button>
+       
 
 
 
@@ -104,10 +130,34 @@
                 var changeText = document.getElementById("change_img_title")
                 var title = document.getElementById("img-text")
             
-                title.innerHTML = changeText.value;
+                title.innerHTML = changeText.value.toUpperCase();
                 
             }
             //CHANGE IMAGE TITLE
+        </script>
+
+        <script>
+            //BLACK AND WHITE FILTER
+            function grayscale(){
+                    document.getElementById("image").style.filter = "grayscale(100%)";
+            }
+            function grayscale0(){
+                document.getElementById("image").style.filter = "grayscale(0%)";
+            }
+            //BLACK AND WHITE FILTER
+        </script>
+
+        <script>
+            //ADD USERNAME
+            function noUsername(){
+
+                document.getElementById("username").style.visibility = "hidden";
+            }
+            function username(){
+
+                document.getElementById("username").style.visibility = "visible";
+            }
+            //ADD USERNAME
         </script>
         
     </body>
