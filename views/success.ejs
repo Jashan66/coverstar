@@ -18,73 +18,93 @@
 
 
     
-       
-        <div class="user-img ">
-            <img id="image" src="<%=photo%>" alt="">
-            <h2 id="img-text">TITLE</h2>
-            <h2 id="username" ><%= username %> </h2>
+        <div class="container">
+            <div class="user-img ">
+                <img id="image" src="<%=photo%>" alt="">
+                <h2 id="img-text">TITLE</h2>
+                <h2 id="username" > @<%= username %> </h2>
+                
+            </div>
+
+
+
+            <div class="img-selectors">
+                <div>
+                    <div class="center">
+                        <h3>Choose Your Photo</h3>
+                        <div class="center">
+                            <div class="selector">
+                                <label for="">Main Photo</label>
+                                    <a class="a-tags" href="/decreaseCount" onclick="decreaseMainPhotoCount()"> <i class="fa-sharp fa-solid fa-arrow-left"></i> </a>
+                                    <label id="photoSelect">0</label>
+                                    <a class="a-tags" href="/increaseCount" onclick="changeMainPhoto()"> <i class="fa-sharp fa-solid fa-arrow-right"></i> </a>   
+                            </div>
+
+                            <div class="selector">
+                                <label for="">Album Photos</label>
+                                <a class="a-tags" href="/decreaseChildCount" onclick="decreaseChildCount()"> <i class="fa-sharp fa-solid fa-arrow-left"></i> </a>
+                                <label id="carousel_selector"> 0</label>
+                                <a class="a-tags" href="/increaseChildCount" onclick="increaseChildCount()"> <i class="fa-sharp fa-solid fa-arrow-right"></i> </a>
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+             
+                <div class="config-title">
+                    <div class="center">
+                        <h3>Add a Title</h3>
+                        <div class="center">
+                            <input maxlength="10" placeholder="Click Enter to Save" onchange="changeTitle()" id="change_img_title" type="text">
+                            
+                        </div>
+                        <div class="color-btns">
+                            <button onclick="title_white()" class="btn btn-light">White</button>
+                            <button onclick="title_red()" class="btn btn-danger">Red</button>
+                            <button onclick="title_black()" class="btn btn-dark">Black</button>
+                        </div>
+                    
+                    </div>
+                </div>
+
+                <hr class="line">
+                <div class="config-title">
+                    <div class="center">
+                        <h3>Photo Color</h3>
+                        <div class="center">
+                            <button id="btn-bw" class="btn btn-dark" onclick="grayscale()">Black/White</button>
+                            <button id="btn-color" class="btn btn-danger" onclick="grayscale0()">Color</button>
+                        </div>
+                    </div>
+                </div>
+                <hr class="line">
+
+                <div class="config-title">
+                    <div class="center">
+                        <h3>Add Your Username</h3>
+                        <div class="center">
+                            <P>USERNAME</P>
+                            <input id="check-img" class="checkbox" type="checkbox" checked onclick="addUsername()">
+                            <!-- <button onclick="username()" class="btn btn-danger">YES</button>
+                            <button onclick="noUsername()" class="btn btn-danger">NO</button> -->
+                        </div>
+                        <div class="color-btns">
+                            <button onclick="username_white()" class="btn btn-light">White</button>
+                            <button onclick="username_red()" class="btn btn-danger">Red</button>
+                            <button onclick="username_black()" class="btn btn-dark">Black</button>
+                        </div>
+                    </div>
+                </div>
+                <hr class="line">
+            </div>
+
+        </div>
+        <div class="createImage">
+            <button class="btn btn-outline-warning">Create Your Image</button>
         </div>
         
+
        
-          
-    
-
-
-        <div class="img-selectors">
-      
-            <div class="center">
-                <h3>Choose Your Photo</h3>
-                <div class="center">
-                    <div class="selector">
-                        <label for="">Main Photo</label>
-                            <a class="a-tags" href="/decreaseCount" onclick="decreaseMainPhotoCount()"> <i class="fa-sharp fa-solid fa-arrow-left"></i> </a>
-                            <label id="photoSelect">0</label>
-                            <a class="a-tags" href="/increaseCount" onclick="changeMainPhoto()"> <i class="fa-sharp fa-solid fa-arrow-right"></i> </a>   
-                    </div>
-
-                    <div class="selector">
-                        <label for="">Album Photos</label>
-                        <a class="a-tags" href="/decreaseChildCount" onclick="decreaseChildCount()"> <i class="fa-sharp fa-solid fa-arrow-left"></i> </a>
-                        <label id="carousel_selector"> 0</label>
-                        <a class="a-tags" href="/increaseChildCount" onclick="increaseChildCount()"> <i class="fa-sharp fa-solid fa-arrow-right"></i> </a>
-                    </div>
-                </div>
-            </div>
-            <br>
-
-            <div class="config-title">
-                <div class="center">
-                    <h3>Add a Title</h3>
-                    <div class="center">
-                        <input maxlength="10" placeholder="Click Enter to Save" onchange="changeTitle()" id="change_img_title" type="text">
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="config-title">
-                <div class="center">
-                    <h3>Black/White or Color</h3>
-                    <div class="center">
-                        <button id="btn-bw" class="btn btn-dark" onclick="grayscale()">Black/White</button>
-                        <button id="btn-color" class="btn btn-danger" onclick="grayscale0()">Color</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="config-title">
-                <div class="center">
-                    <h3>Add Your Username</h3>
-                    <div class="center">
-                        <button onclick="username()" class="btn btn-danger">YES</button>
-                        <button onclick="noUsername()" class="btn btn-danger">NO</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-     
-        <button class="btn btn-outline-warning">Submit</button>
        
 
 
@@ -149,15 +169,59 @@
 
         <script>
             //ADD USERNAME
-            function noUsername(){
+            function addUsername(){
 
-                document.getElementById("username").style.visibility = "hidden";
-            }
-            function username(){
+                if (document.getElementById("check-img").checked == true){
 
-                document.getElementById("username").style.visibility = "visible";
+                    document.getElementById("username").style.visibility = "visible";
+                } else{
+
+                    document.getElementById("username").style.visibility = "hidden";
+                }
             }
+
+
+            // function noUsername(){
+
+            //     document.getElementById("username").style.visibility = "hidden";
+            // }
+            // function username(){
+
+            //     document.getElementById("username").style.visibility = "visible";
+            // }
+
+
             //ADD USERNAME
+        </script>
+
+        <script>
+            //CHANGE TITLE COLOR
+            function title_white(){
+                document.getElementById("img-text").style.color = "white";
+            }
+
+            function title_red(){
+                document.getElementById("img-text").style.color = "red";
+            }
+
+            function title_black(){
+                document.getElementById("img-text").style.color = "black";
+            }
+            //CHANGE TITLE COLOR
+
+            //CHANGE USERNAME COLOR
+            function username_white(){
+                document.getElementById("username").style.color = "white";
+            }
+
+            function username_red(){
+                document.getElementById("username").style.color = "red";
+            }
+
+            function username_black(){
+                document.getElementById("username").style.color = "black";
+            }
+            //CHANGE USERNAME COLOR
         </script>
         
     </body>

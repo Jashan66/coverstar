@@ -1,6 +1,7 @@
 .document{
     background-color: black;
-    font-family: 'Kanit', sans-serif;
+    /* font-family: 'Kanit', sans-serif; */
+    font-family: 'Bodoni Moda', serif;
 }
 
 
@@ -63,7 +64,8 @@
     margin-left: 13%;
     
     color: white;
-    font-family: 'Kanit', sans-serif;
+    font-family: 'Bodoni Moda', serif;
+    /* font-family: 'Kanit', sans-serif; */
 
 }
 
