@@ -3,6 +3,7 @@ const express = require("express");
 const db = require("./db");
 const axios = require("axios");
 const { profile } = require("console");
+const html2canvas = require("html2canvas");
 
 var router = express.Router();
 
@@ -22,7 +23,6 @@ router.get("/info-popup", (req,res,next)=>{
 
     res.render("info-popup");
 });
-
 
 
 
@@ -87,7 +87,7 @@ router.get("/success", (req,res,next)=>{
                                 photo_url = child_url;
                             }
                             
-                           
+    
                             res.render("success", {username:userInfo.username, photo:photo_url, cpc:child_photo_count, mpc: main_photo_count});
                         })
                     });
@@ -152,6 +152,21 @@ router.post("/logout", (req,res,next)=>{
     });
 
 });
+
+////////////////CREATE FINAL IMAGE/////////////////////////////
+
+
+router.get("/createImage", (req,res,next)=>{
+
+    res.render("final_img");
+})
+
+router.post("/createImage", (req,res,next)=>{
+    
+    res.redirect("/createImage");
+})
+
+
 
 
 

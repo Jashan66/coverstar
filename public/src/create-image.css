@@ -8,12 +8,16 @@
     float: left;
     margin-top: 2%;
     position: relative;
-    margin-right: 13%
+    margin-right: 13%;
+    border-style: solid;
+    border-color: red;
+    border-width: thick;
 }
 
 #image{
     width: 500px;
     height: 600px;
+    
    
 }
 
@@ -74,9 +78,10 @@
     color: black;
     bottom: 0;
     font-size: 530%;
-    width: 100%; 
+    width: 50%; 
     left: 5px;
     font-size: 150%;
+    font-weight: bolder;
     
 }
 
@@ -110,3 +115,4 @@
     margin-left: 20%;
     
 }
+

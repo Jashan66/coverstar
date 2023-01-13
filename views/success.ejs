@@ -7,7 +7,7 @@
         </div>
 
         <div class="home-info">
-            <a href="/info-popup" class="link"> <i class="fa-solid fa-circle-info"></i> </a>
+            <a href="/info-popup" target="popup" class="link" onclick="window.open('/info-popup', 'popup', 'width=600,height=600,scrollbars=no,resizable=no')" > <i class="fa-solid fa-circle-info"></i> </a>
         </div>
 
         <form class="logout" action="/logout" method="POST">
@@ -15,14 +15,31 @@
         </form>
 
         <hr class="line">
+    
+        <script>
+            function downloadURI(uri,name){
 
+                var link = document.createElement("a");
+                link.download = name;
+                link.href = uri;
+                link.click();
+            }
+
+            function getImage(){
+                html2canvas(document.getElementById("creatingImage"),{logging: true, letterRendering: 1, allowTaint:false, useCORS: true}).then(function(canvas){
+                    var myImage = canvas.toDataURL("image/jpeg", 0.9);
+                    downloadURI("data:" + myImage, "yourImage.png");
+                });
+            }
+        </script>
+        
 
     
         <div class="container">
-            <div class="user-img ">
+            <div id="creatingImage" class="user-img ">
                 <img id="image" src="<%=photo%>" alt="">
                 <h2 id="img-text">TITLE</h2>
-                <h2 id="username" > @<%= username %> </h2>
+                <h2 id="username">@<%= username %> </h2>
                 
             </div>
 
@@ -30,6 +47,7 @@
 
             <div class="img-selectors">
                 <div>
+                   
                     <div class="center">
                         <h3>Choose Your Photo</h3>
                         <div class="center">
@@ -48,9 +66,8 @@
                             </div>
                         </div>
                     </div>
-                   
                 </div>
-             
+                
                 <div class="config-title">
                     <div class="center">
                         <h3>Add a Title</h3>
@@ -89,9 +106,11 @@
                             <button onclick="noUsername()" class="btn btn-danger">NO</button> -->
                         </div>
                         <div class="color-btns">
-                            <button onclick="username_white()" class="btn btn-light">White</button>
-                            <button onclick="username_red()" class="btn btn-danger">Red</button>
-                            <button onclick="username_black()" class="btn btn-dark">Black</button>
+                            
+                                <button onclick="username_white()" name="white" class="btn btn-light">White</button>
+                                <button onclick="username_red()" name="red" class="btn btn-danger">Red</button>
+                                <button onclick="username_black()" name="black" class="btn btn-dark">Black</button>
+                          
                         </div>
                     </div>
                 </div>
@@ -100,7 +119,9 @@
 
         </div>
         <div class="createImage">
-            <button class="btn btn-outline-warning">Create Your Image</button>
+            <!-- <form action="/createImage" method="POST"> -->
+                <button type="submit" onclick="getImage()" class="btn btn-outline-warning">Download Your Image</button>
+            <!-- </form> -->
         </div>
         
 
@@ -149,8 +170,12 @@
 
                 var changeText = document.getElementById("change_img_title")
                 var title = document.getElementById("img-text")
-            
+                
                 title.innerHTML = changeText.value.toUpperCase();
+                var title_len = title.innerHTML.length;
+                if (title_len <= 6){
+                    title.style.fontSize = "650%"
+                }
                 
             }
             //CHANGE IMAGE TITLE
@@ -179,17 +204,6 @@
                     document.getElementById("username").style.visibility = "hidden";
                 }
             }
-
-
-            // function noUsername(){
-
-            //     document.getElementById("username").style.visibility = "hidden";
-            // }
-            // function username(){
-
-            //     document.getElementById("username").style.visibility = "visible";
-            // }
-
 
             //ADD USERNAME
         </script>

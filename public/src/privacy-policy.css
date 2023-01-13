@@ -14,7 +14,8 @@
 
 .pp-document{
     background-color: black;
-    font-family: 'Kanit', sans-serif;
+    /* font-family: 'Kanit', sans-serif; */
+    font-family: 'Bodoni Moda', serif;
 }
 
 /* INFO POPUP */
@@ -22,7 +23,8 @@
 .info-body{
 
     background-color: black;
-    font-family: 'Kanit', sans-serif;
+    /* font-family: 'Kanit', sans-serif; */
+    font-family: 'Bodoni Moda', serif;
     text-align: center;
 }
 
