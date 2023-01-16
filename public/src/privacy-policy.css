@@ -5,6 +5,15 @@
     color: white;
 }
 
+.pp-magfame{
+    text-decoration: none;
+    color: white;
+}
+
+.pp-magfame:hover{
+    color: white;
+}
+
 .pp-content{
     margin-top: 2%;
     color: white;

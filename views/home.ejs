@@ -2,15 +2,22 @@
 
 <body class="document">
 
-        <div class="titles">
-            <h1>Mag-Fame</h1>
-            
+    <div>
+       
+        <div class="navbar">
+            <div class="home-info">
+                <a href="/info-popup" target="popup" class="link" onclick="window.open('/info-popup', 'popup', 'width=600,height=600,scrollbars=no,resizable=no')"> <i class="fa-solid fa-circle-info"></i> </a>
+            </div>
+
+            <div class="home-titles">
+                <h1>Mag-Fame</h1>
+            </div>
+            <div>
+                <a target="_blank" href="https://www.jashanrahal.com/about.html" class="author"> <i class="fa-solid fa-address-card"></i> </a>
+            </div>
         </div>
 
-        <div class="home-info">
-          
-            <a href="/info-popup" target="popup" class="link" onclick="window.open('/info-popup', 'popup', 'width=600,height=600,scrollbars=no,resizable=no')"> <i class="fa-solid fa-circle-info"></i> </a>
-        </div>
+    </div>
         <hr class="line">
           
 
@@ -18,7 +25,7 @@
             <div class="main-content">
                 
                 <div class="home-img">
-                    <img id="home-img" width="450" height="550" src="/src/photos/home-img.png" alt="Magazine Cover">
+                    <img id="home-image" width="400px" height="500px" src="/src/photos/home-img.png" alt="Magazine Cover">
                 </div>
 
 
@@ -43,11 +50,11 @@
         </div>      
 
 
-        <footer>
-            <div class="footer">
+        <footer class="footer">
+            
                 <a target="_blank" href="/privacy_policy">Privacy Policy</a>
                 <p>Created by Jashan Rahal</p>
-            </div>
+        
         </footer>
 
 
@@ -59,10 +66,10 @@
 
           if (document.getElementById("check").checked == true){
 
-            document.getElementById("home-img").style.filter = "grayscale(100%)";
+            document.getElementById("home-image").style.filter = "grayscale(100%)";
         }else{
 
-            document.getElementById("home-img").style.filter = "grayscale(0%)";
+            document.getElementById("home-image").style.filter = "grayscale(0%)";
             }
           }
         </script>

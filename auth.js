@@ -4,7 +4,7 @@ const passport = require("passport");
 
 const InstagramStrategy = require("passport-instagram").Strategy;
 // const InstagramStrategy = Instagram.Strategy;
-const db = require("./db");
+// const db = require("./db");
 
 
 var router = express.Router();
@@ -20,7 +20,6 @@ passport.use(new InstagramStrategy({
 
 
 
-   
    
     //Once user is authenticated the access token will be here along with profile id both needed to get api data
     //Check if user exists in db if not create a new proifle for them

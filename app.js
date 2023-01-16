@@ -13,7 +13,7 @@ const app = express();
 var routing = require("./routes");
 var {auth} = require("./auth");
 
-var db = require("./db");
+// var db = require("./db");
 
 
 // SSL SERVER CERTIFICATE
