@@ -54,7 +54,10 @@ if (port == null || port == ""){
     port = 8000;
 }
 
-app.listen(port);
+app.listen(port|| 3000, function(){
+
+    console.log("heroku server running");
+});
 
 
 server.listen(3000,()=>{
