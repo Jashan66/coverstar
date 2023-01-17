@@ -17,9 +17,7 @@
   ],
   "author": "Jashan Rahal",
   "license": "ISC",
-  "engines": {
-    "node": "16.14.2"
-  },
+  
   "bugs": {
     "url": "https://github.com/Jashan66/mag-fame/issues"
   },
@@ -37,11 +35,14 @@
     "https": "^1.0.0",
     "mongoose": "^6.8.0",
     "mongoose-findorcreate": "^3.0.0",
-    "node": "^16.14.2",
     "passport": "^0.6.0",
     "passport-facebook": "^3.0.0",
     "passport-instagram": "^1.0.0",
     "session": "^0.1.0",
     "sharp": "^0.31.3"
+  },
+  "engines": {
+    "node": "16.14.2",
+    "npm": "8.5.0"
   }
 }
