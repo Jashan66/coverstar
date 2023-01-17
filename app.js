@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 const session = require("express-session");
 const passport = require("passport");
 const html2canvas = require("html2canvas");
+
 require('https').globalAgent.options.rejectUnauthorized = false;
 const app = express();
 

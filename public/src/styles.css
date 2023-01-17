@@ -6,7 +6,9 @@
 
 
 /* HOME PAGE */
-
+.pad{
+  padding-right: 3%;
+}
 
 .home-info{
   margin-left: 2%;
