@@ -14,7 +14,7 @@ var router = express.Router();
 passport.use(new InstagramStrategy({
     clientID: process.env.INSTAGRAM_APP_ID,
     clientSecret: process.env.INSTAGRAM_SECRET,
-    callbackURL: "https://localhost:3000/auth/instagram/callback",
+    callbackURL: "https://mag-fame.herokuapp.com/auth/instagram/callback",
   },
   function(accessToken, refreshToken, profile, done) {
 
