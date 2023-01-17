@@ -40,7 +40,11 @@
     "passport-facebook": "^3.0.0",
     "passport-instagram": "^1.0.0",
     "session": "^0.1.0",
-    "sharp": "^0.31.3"
+    "sharp": "^0.31.3",
+    "nodemon": "^2.0.15",
+    "npm": "^8.5.0",
+    "gulp-cli": "^2.3.0",
+    "corepack": "^0.10.0"
   },
   "engines": {
     "node": "16.14.2",
